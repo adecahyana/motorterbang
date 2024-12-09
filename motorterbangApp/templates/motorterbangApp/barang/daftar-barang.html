@@ -1,0 +1,87 @@
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Barang</title>
+    {% tailwind_preload_css %} {% tailwind_css %}
+  </head>
+  <body class="bg-gray-100">
+    <h1 class="text-lg text-black text-center mb-5 mt-5">Daftar Barang</h1>
+    <div class="container mx-auto flex-auto bg-neutral-100 max-w-max">
+      <div
+        class="relative flex flex-col w-fit h-fit text-gray-700 bg-white drop-shadow-2xl rounded-xl bg-clip-border"
+      >
+        <table class="w-full text-left table-auto min-w-max">
+          <thead>
+            <tr class="bg-gray-900 border text-white">
+              <th class="p-4 columns-2xl">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-none"
+                >
+                  Nama Barang
+                </p>
+              </th>
+              <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-none"
+                >
+                  No. Katalog
+                </p>
+              </th>
+              <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-none"
+                >
+                  Stok Gudang
+                </p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for barang in daftar_barang %}
+            <tr
+              onclick="window.location='{{ barang.id }}'"
+              class="hover:bg-gray-50 hover:cursor-pointer"
+            >
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                >
+                  {{ barang.nama_barang }}
+                </p>
+              </td>
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 text-center"
+                >
+                  {{ barang.no_katalog }}
+                </p>
+              </td>
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 text-center"
+                >
+                  {{ barang.stok}}
+                </p>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 flex justify-end">
+        <button
+          class="bg-blue-950 hover:bg-gray-700 text-gray-200 py-2 w-28 px-4 mr-1 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600"
+        >
+          <a href="{% url 'motorterbangApp:tambah_barang' %}">Tambah</a>
+        </button>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="{{ STATIC_URL }} /static/jquery-3.7.1.min.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambah Barang</title>
+    {% tailwind_preload_css %} {% tailwind_css %}
+  </head>
+  <body
+    class="bg-gray-100 text-gray-700 min-h-screen flex items-center justify-center"
+  >
+    <div class="bg-gray-300 rounded-lg shadow-lg p-8 w-full max-w-md mt-4 mb-2">
+      <form method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <div class="mt-4 flex justify-end">
+          <a
+            class="button mr-2 bg-blue-950 hover:bg-gray-700 text-gray-200 py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600"
+            href="{% url 'motorterbangApp:daftar_barang' %}"
+            >Batal</a
+          >
+
+          <button
+            type="submit"
+            class="bg-black hover:bg-gray-700 text-gray-200 py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600"
+          >
+            Simpan
+          </button>
+        </div>
+      </form>
+    </div>
+    <script
+      type="text/javascript"
+      src="{{ STATIC_URL }} /static/jquery-3.7.1.min.js"
+    ></script>
+  </body>
+</html>

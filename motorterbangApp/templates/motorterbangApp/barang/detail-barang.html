@@ -1,0 +1,140 @@
+"{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Barang</title>
+    {% tailwind_preload_css %} {% tailwind_css %}
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto flex-auto bg-neutral-100 max-w-max mt-5">
+      <h1 class="text-lg text-black text-center mb-5 mt-5">Detail Barang</h1>
+      <div
+        class="relative flex flex-col w-fit h-fit text-gray-700 bg-white drop-shadow-2xl rounded-xl bg-clip-border"
+      >
+        <table class="w-full text-left table-auto min-w-max">
+          <thead>
+            <tr class="bg-gray-900 border text-white">
+              <th class="p-4 border-b border-blue-gray-100">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-none"
+                >
+                  Informasi Barang
+                </p>
+              </th>
+
+              <th class="p-4 border-b border-blue-gray-100 columns-3xl">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-none"
+                >
+                  Deskripsi
+                </p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900"
+                >
+                  Nama Barang :
+                </p>
+              </td>
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                >
+                  {{ object.nama_barang }}
+                </p>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900"
+                >
+                  Jenis Barang :
+                </p>
+              </td>
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                >
+                  {{ object.jenis_barang }}
+                </p>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900"
+                >
+                  Nomor Katalog :
+                </p>
+              </td>
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                >
+                  {{ object.no_katalog }}
+                </p>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900"
+                >
+                  Spesifikasi :
+                </p>
+              </td>
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                >
+                  {{ object.spesifikasi }}
+                </p>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900"
+                >
+                  Stok Gudang :
+                </p>
+              </td>
+              <td class="p-4 border-b border-blue-gray-50">
+                <p
+                  class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
+                >
+                  {{ object.stok }}
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-center rounded-md mt-3" role="group">
+        <button
+          class="bg-blue-950 hover:bg-gray-700 text-gray-200 py-2 w-28 px-4 mr-1 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600"
+        >
+          <a href="{% url 'motorterbangApp:daftar_barang' %}">Kembali</a>
+        </button>
+        <button
+          class="bg-black hover:bg-gray-700 text-gray-200 py-2 w-28 px-4 ml-1 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-600"
+        >
+          <a href="{% url 'motorterbangApp:edit_barang' barang.id %}">Edit</a>
+        </button>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="{{ STATIC_URL }} /static/jquery-3.7.1.min.js"
+    ></script>
+  </body>
+</html>
+"
